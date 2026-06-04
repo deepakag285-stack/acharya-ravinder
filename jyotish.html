@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+      <style>
+         .flower {
+            position: fixed; 
+            top: -50px; 
+            font-size: 30px; /* Thoda bada size taaki 5 flowers acche se dikhein */
+            user-select: none;
+            pointer-events: none; /* Cards ke buttons kaam karte rahenge */
+            z-index: 9999;        /* Cards ke upar dikhega */
+            animation: fall linear infinite;
+        }
+
+        /* Speed aur path bilkul fix hai */
+        @keyframes fall {
+            0% {
+                top: -50px;
+                transform: translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                top: 105vh; 
+                transform: translateX(50px) rotate(360deg);
+                opacity: 0.6;
+            }
+        }
+    </style>
+ 
+    <script>
+        // Flower ki types
+        const flowers = ['🌸', '💮', '🌹', '🌺', '🌻'];
+        
+        // STRICT CONFIGURATION (Bilkul Fix)
+        const flowerCount = 5; // Sirf 5 flowers girenge
+        const fixSpeed = 7;    // Har flower 7 seconds me niche pahuchega (Fix Time)
+
+        function createFlower(index) {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            
+            // Har ek number ko alag flower mil rha hai
+            flower.innerText = flowers[index % flowers.length];
+            
+            // Screen par alag-alag jagah se girenge (Left se right ke beech me)
+            // 5 flowers hain toh unhe screen par barabar baant diya hai (0%, 20%, 40%, 60%, 80%)
+            flower.style.left = (index * 20) + Math.random() * 5 + 'vw';
+            
+            // Speed bilkul fix (7 seconds)
+            flower.style.animationDuration = fixSpeed + 's';
+            
+            // Delay isliye taaki saare 1 saath na giren, aage peeche giren
+            flower.style.animationDelay = (index * 1.2) + 's'; 
+
+            document.body.appendChild(flower);
+        }
+
+        // Loop sirf 5 baar chalega aur fix 5 flowers banayega
+        for (let i = 0; i < flowerCount; i++) {
+            createFlower(i);
+        }
+    </script>
+
+       <canvas id="wmCanvas"></canvas>
+<script>
+let canvas = document.getElementById("wmCanvas");
+let ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let text = " पं रविंदर   | " + new Date().toLocaleString();
+
+ctx.font = "20px Arial";
+ctx.fillStyle = "rgba(0.3,0.3,0.3,0.3)";
+ctx.rotate(-0.5);
+
+for (let x = -500; x < canvas.width; x += 300) {
+    for (let y = 0; y < canvas.height; y += 150) {
+        ctx.fillText(text, x, y);
+    }
+}
+</script>
+
+<style>
+#wmCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
+</style>
+
+        <style>
+   body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none; /* मोबाइल पर इमेज दबाए रखने पर 'Save' मेनू नहीं आएगा */
+  }
+
+  img {
+    pointer-events: none;
+    -webkit-user-drag: none;
+  }
+
+   @media print {
+    body { display: none !important; }
+  }
+
+   .protected-content {
+    transition: filter 0.1s ease;
+  }
+  .is-blurred {
+    filter: blur(60px) !important;
+  }
+
+ </style>
+<script>
+   document.addEventListener('contextmenu', e => e.preventDefault());
+
+   document.addEventListener('keydown', function(e) {
+    if (
+      e.keyCode === 123 || // F12
+      (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83 || e.keyCode === 80)) || // Ctrl+U, S, P
+      (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) // Ctrl+I/J/C
+    ) {
+      e.preventDefault();
+      alert("Security Alert: Content is Protected!");
+      return false;
+    }
+  });
+   document.addEventListener('keyup', (e) => {
+    if (e.key === 'PrintScreen') {
+      navigator.clipboard.writeText(''); // क्लिपबोर्ड खाली करना
+      alert('Screenshots are disabled!');
+    }
+  });
+  setInterval(function() {
+    const threshold = 160;
+    if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) {
+      document.body.innerHTML = "<h2 style='text-align:center; color:red; margin-top:20%'>Security Breach! Please close Developer Tools to view content.</h2>";
+    }
+  }, 1000);
+ </script>
+
+    <script>
+document.addEventListener("contextmenu", (e) => e.preventDefault());
+
+document.onkeydown = function(e) {
+  if (e.keyCode == 123) return false; // F12
+  if (e.ctrlKey && e.shiftKey && e.keyCode == 73) return false; // Ctrl+Shift+I
+  if (e.ctrlKey && e.keyCode == 85) return false; // Ctrl+U
+};
+</script>
+    <div class="translate-box">
+     <div id="google_translate_element"></div><b>Select Language:</b>
+</div>
+ <style>
+#google_translate_element {
+    display: inline-block;
+    white-space: nowrap;
+    margin-left: 2cm;
+}
+
+.goog-te-gadget {
+    font-size: 0; /* remove extra text space */
+}
+.translate-box{
+    background-color: yellow;
+}
+.goog-te-gadget select {
+    height: 32px;
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+/* Hide Google text/logo */
+.goog-te-gadget span {
+    display: none;
+}
+
+/* Remove top banner */
+.goog-te-banner-frame {
+    display: none !important;
+}
+ </style>
+<!-- Google Translate Script -->
+<script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+        {
+            pageLanguage: 'en',
+            includedLanguages: 'en,hi,pa,mr,sa',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        },
+        'google_translate_element'
+    );
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <hr>
+                   <a  href="https://wa.me/9813132098?text= 1) आचार्य जी प्रणाम। हम अपने बारे में कुछ पूछना चाहते हैं।
+  2) आचार्य जी नमस्कार हम कुछ जन्म कुंडली के बारे में जानना चाहते हैं
+  3) आचार्य जी नमस्कार हम राशि रत्न की विस्तृत जानकारी लेना चाहते हैं" class="whatshap-float" ><img  class="ji" src="images/QtvHd6lI9q4iydr59B.gif"></a>
+  <br>
+  <a href="tel: +919813132098" class="call-float"><img class="ji" src="images/WqXjQsd0MAhc2CvtkQ (1).gif"></a>
+<style>
+                 .whatshap-float{
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+             }
+               .call-float{
+                position: fixed;
+                bottom: 100px;
+                right: 20px;
+                z-index: 1000;
+             }
+</style>
+                               <a href="index.html"><button class="btn btn-secondary" style="font-weight:bold">वापस जाओ</button> </a> 
+                           <hr>
+                           <h3>ज्योतिषीय उपाय</h3>
+                           <hr>
+                            <div class="card1">
+                           <h6 class="jyo">आज ही कॉल करें।</h6>
+                           </div>
+                             <hr>
+                            <div class="card">
+    <div class="card-header">
+        <h5>1) रत्न और ज्योतिषीय उपाय </h5>
+    </div>
+    <div class="card-footer">
+       <a href="https://drive.google.com/file/d/1bDFbKPcCpRsOgevWPtcxOffExeFShwJg/view?usp=sharing" ><button class="btn btn-secondary"  class="bold">देखें</button></a>
+    </div>
+    </div>
+      <hr>
+<div class="card">
+    <div class="card-header">
+        <h5>2) नवग्रह दोष और उपाय </h5>
+    </div>
+    <div class="card-footer">
+       <a href="https://drive.google.com/file/d/1zqpKZmALGZtIQAS7TzpDwzA0yovg4Cgr/view?usp=sharing"><button class="btn btn-secondary">देखें</button></a>
+    </div>
+    </div>
+ <hr>
+ <div class="card">
+    <div class="card-header">
+        <h5>3) </h5>
+    </div>
+    <div class="card-footer">
+        <img src="images/IMG-20260410-WA0038.jpg">
+     </div>
+    </div>
+ <hr>
+ <div class="card">
+    <div class="card-header">
+        <h5>4) </h5>
+    </div>
+    <div class="card-footer">
+        <img src="images/IMG-20260410-WA0039.jpg">
+     </div>
+     </div>
+     <hr>
+<div class="card">
+    <div class="card-header">
+        <h5>5) </h5>
+    </div>
+    <div class="card-footer">
+                <img src="images/IMG-20260410-WA0040.jpg">
+     </div>
+     </div>
+     <hr>
+<div class="card">
+    <div class="card-header">
+        <h5>6) </h5>
+    </div>
+    <div class="card-footer">
+                <img src="images/IMG-20260410-WA0041.jpg">
+
+     </div>
+     </div>
+     <hr>
+<div class="card">
+    <div class="card-header">
+        <h5>7) </h5>
+    </div>
+    <div class="card-footer">
+                <img src="images/IMG-20260410-WA0042.jpg">
+     </div>
+     </div>
+     <hr>
+<div class="card">
+    <div class="card-header">
+        <h5>8) </h5>
+    </div>
+    <div class="card-footer">
+        <img src="images/IMG-20260410-WA0043.jpg">
+     </div>
+     </div>
+     <hr>
+<div class="card">
+    <div class="card-header">
+        <h5>9) </h5>
+    </div>
+    <div class="card-footer">
+        <img src="images/IMG-20260410-WA0044.jpg">
+     </div>
+</div>
+<hr>
+ <div class="card">
+    <div class="card-header">
+        <h5>10) </h5>
+    </div>
+    <div class="card-footer">
+        <img src="images/IMG-20260410-WA0045.jpg">
+     </div>
+</div>
+     <hr>
+     <div class="card">
+        <div class="card-header">
+            <h5>11)</h5>
+        </div>
+        <div class="card-footer">
+            <img src="images/IMG-20260410-WA0046.jpg">
+        </div>
+     </div>
+</body>
+<style>
+    body{
+                background: linear-gradient(260deg, yellow 16% , green 50%, orangered 50%, orangered 100%);
+         margin-top: 1cm;
+                 background-size: 400% 400%;
+        animation:gradientAnimation 10s ease infinite
+    }
+    @keyframes gradientAnimation {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+    }
+     h3{
+        margin-left: 3cm;
+        color: red;
+                    font-weight: 900;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+        h5{
+        margin-left: 1cm;
+                color: white;
+                            font-weight: 900;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    h7{
+        color: yellowgreen;
+                    font-weight: 900;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .card{
+        box-shadow: 1px 1px 1px 1px orchid;
+                                                  background: linear-gradient(260deg, green 16% , blue 50%, orange 50%, olive 100%);
+         background-size: 400% 400%;
+        animation:gradientAnimation 10s ease infinite
+    }
+    @keyframes gradientAnimation {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+    }
+                                                  .card-header{
+         background-color: blue;
+    }
+    img{
+        height: 250px;
+        width: 300px;
+        margin-left: 0cm;
+    }
+        .ji{
+        height: 60px;
+        width: 60px;
+     }
+     .card1{
+        box-shadow: 2px 2px 2px 2px goldenrod;
+        background-color: olivedrab;
+     }
+    h6{
+        margin-left: 2cm;
+        font-size: medium;
+        color: white;
+                    font-weight: 900;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+
+    }
+button{
+    margin-left: 3cm;
+}
+</style>
+</html>

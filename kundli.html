@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+                     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+</head>
+<body>
+ 
+       <canvas id="wmCanvas"></canvas>
+<script>
+let canvas = document.getElementById("wmCanvas");
+let ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let text = " पं रविंदर   | " + new Date().toLocaleString();
+
+ctx.font = "20px Arial";
+ctx.fillStyle = "rgba(0.3,0.3,0.3,0.3)";
+ctx.rotate(-0.5);
+
+for (let x = -500; x < canvas.width; x += 300) {
+    for (let y = 0; y < canvas.height; y += 150) {
+        ctx.fillText(text, x, y);
+    }
+}
+</script>
+
+<style>
+#wmCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
+</style>
+<style>
+   body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none; /* मोबाइल पर इमेज दबाए रखने पर 'Save' मेनू नहीं आएगा */
+  }
+
+  img {
+    pointer-events: none;
+    -webkit-user-drag: none;
+  }
+
+   @media print {
+    body { display: none !important; }
+  }
+
+   .protected-content {
+    transition: filter 0.1s ease;
+  }
+  .is-blurred {
+    filter: blur(60px) !important;
+  }
+
+ </style>
+<script>
+   document.addEventListener('contextmenu', e => e.preventDefault());
+
+   document.addEventListener('keydown', function(e) {
+    if (
+      e.keyCode === 123 || // F12
+      (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83 || e.keyCode === 80)) || // Ctrl+U, S, P
+      (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) // Ctrl+I/J/C
+    ) {
+      e.preventDefault();
+      alert("Security Alert: Content is Protected!");
+      return false;
+    }
+  });
+   document.addEventListener('keyup', (e) => {
+    if (e.key === 'PrintScreen') {
+      navigator.clipboard.writeText(''); // क्लिपबोर्ड खाली करना
+      alert('Screenshots are disabled!');
+    }
+  });
+  setInterval(function() {
+    const threshold = 160;
+    if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) {
+      document.body.innerHTML = "<h2 style='text-align:center; color:red; margin-top:20%'>Security Breach! Please close Developer Tools to view content.</h2>";
+    }
+  }, 1000);
+ </script>
+
+    <script>
+document.addEventListener("contextmenu", (e) => e.preventDefault());
+
+document.onkeydown = function(e) {
+  if (e.keyCode == 123) return false; // F12
+  if (e.ctrlKey && e.shiftKey && e.keyCode == 73) return false; // Ctrl+Shift+I
+  if (e.ctrlKey && e.keyCode == 85) return false; // Ctrl+U
+};
+</script>
+    <div class="translate-box">
+     <div id="google_translate_element"></div><b>Select Language:</b>
+</div>
+ <style>
+#google_translate_element {
+    display: inline-block;
+    white-space: nowrap;
+    margin-left: 2cm;
+}
+.translate-box{
+    background-color: yellow;
+}
+.goog-te-gadget {
+    font-size: 0; /* remove extra text space */
+}
+
+.goog-te-gadget select {
+    height: 32px;
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+/* Hide Google text/logo */
+.goog-te-gadget span {
+    display: none;
+}
+
+/* Remove top banner */
+.goog-te-banner-frame {
+    display: none !important;
+}
+ </style>
+<!-- Google Translate Script -->
+<script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+        {
+            pageLanguage: 'en',
+            includedLanguages: 'en,hi,pa,mr,sa',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        },
+        'google_translate_element'
+    );
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <hr>
+                   <a  href="https://wa.me/9813132098?text= 1) आचार्य जी प्रणाम। हम अपने बारे में कुछ पूछना चाहते हैं।
+  2) आचार्य जी नमस्कार हम कुछ जन्म कुंडली के बारे में जानना चाहते हैं
+  3) आचार्य जी नमस्कार हम राशि रत्न की विस्तृत जानकारी लेना चाहते हैं" class="whatshap-float" ><img  class="ji" src="images/QtvHd6lI9q4iydr59B.gif"></a>
+  <br>
+  <a href="tel: +919813132098" class="call-float"><img class="ji" src="images/WqXjQsd0MAhc2CvtkQ (1).gif"></a>
+<style>
+                 .whatshap-float{
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+             }
+               .call-float{
+                position: fixed;
+                bottom: 100px;
+                right: 20px;
+                z-index: 1000;
+             }
+</style>
+<br><br><br><br><br>
+                                      <h7><img src="images/IMG-20260412-WA0002.jpg">**जन्म कुंडली में शुभ/अशुभ/दोष योग देखने के लिए,नीचे दिए गए लाल/काले/हरा बटन को दबाएँ।</h7>
+                                          <br> <br>            
+                                     <a href="index.html"><button class="btn btn-primary" style="font-weight:bold">वापस जाओ</button> </a> 
+
+                                          <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <ul class="nav nav-tabs">    
+             <li  class="nav-item"><a class="nav-link" href="#subh" data-bs-toggle="tab"><button  class="btn btn-danger" id="btn">जन्म कुंडली में शुभ योग</button></a></li>
+                          <li class= "nav-item"><a class="nav-link " href="#asubh" data-bs-toggle="tab"><button class="btn btn-dark" id="btn">जन्म कुंडली में अशुभ योग</button></a></li>
+                          <li class= "nav-item"><a class="nav-link " href="#dosh" data-bs-toggle="tab"><button class="btn btn-success" id="btn"> कुंडली में दोष के प्रकार</button></a></li>
+                        </ul>
+</div>
+</div>
+</div>
+<hr>
+                                              
+    <style>
+        .form-container { max-width: 400px; margin: 20px auto; font-family: Arial; }
+        textarea { width: 100%; height: 100px; margin-bottom: 10px; padding: 10px; box-sizing: border-box; }
+        button { background-color: #25D366; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; font-weight: bold; }
+        button:hover { background-color: #128C7E; }
+   .ajs{
+        color:black;
+   }
+    </style>
+
+<script>
+function sendToWhatsapp() {
+    // 1. Get the user's input
+    let problem = document.getElementById("problemText").value;
+    
+    // 2. Your WhatsApp number (International format, no + or 00)
+    let phoneNumber = "919813132098"; // Example: 91 for India + 10-digit number
+    
+    if (problem.trim() === "") {
+        alert(". कृपया अपनी समस्या का वर्णन करें, अपनी समस्या लिखने के बाद, आप भेज सकते हैं अन्यथा आप नहीं भेज सकते ");
+        return;
+    }
+
+    // 3. Format the message for the URL
+    let encodedMessage = encodeURIComponent("मुझे एक समस्या है-:" + problem);
+    
+    // 4. Create the WhatsApp URL
+    let whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    // 5. Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank').focus();
+}
+</script>
+ <div class="tab-content">
+  <div id="subh" class="tab-pane fade in">
+         <h7>शुभ योग</h7>
+    <br><br>
+ <div class="card">
+    <div class="card-header">
+        <h5>1) पंच महापुरुष योग </h5>
+     </div>
+    <div class="card-footer">
+        <a href="https://drive.google.com/file/d/1wWYAQd8Ei7Zm8IA5hyL0WqnFd2h-JVhM/view?usp=sharing" style="font-weight:bold"><button class="btn btn-danger">देखें</button></a>
+    </div>
+ </div>
+ <hr>
+ <div class="card">
+    <div class="card-header">
+        <h5>2) गज केशरी योग</h5>
+    </div>
+    <div class="card-footer">
+        <a href="https://drive.google.com/file/d/1v67XZQmIE7q7Lbt6WaNyJvGDaMWJBLcd/view?usp=drivesdk" style="font-weight:bold"><button class="btn btn-danger">देखें</button></a>
+    </div>
+ </div>
+ <hr>
+  <div class="card">
+    <div class="card-header">
+        <h5>3) बुधादित्य योग</h5>
+    </div>
+    <div class="card-footer">
+        <a href="https://drive.google.com/file/d/1n_9BAWJ2YDRKKv_LGAoafDtDaAbypdr6/view?usp=drivesdk" style="font-weight:bold"><button class="btn btn-danger">देखें</button></a>
+    </div>
+ </div>
+ <hr>
+ <div class="card">
+    <div class="card-header">
+        <h5>4) महालक्ष्मी योग</h5>
+    </div>
+    <div class="card-footer">
+        <a href="https://drive.google.com/file/d/11Rr_0oU5MwzwaRYN5x5R3_OZN1Ik2FlP/view?usp=drivesdk" style="font-weight:bold"><button class="btn btn-danger">देखें</button></a>
+    </div>
+ </div>
+ <hr>
+ <div class="card">
+    <div class="card-header">
+        <h5>5) निचभंग योग</h5>
+    </div>
+    <div class="card-footer">
+        <a href="https://drive.google.com/file/d/1wbRrfSonqdHdA_d08tNBLAfzvcZyZMXv/view?usp=drivesdk" style="font-weight:bold"><button class="btn btn-danger">देखें</button></a>
+    </div>
+ </div>
+ <hr>
+ <div class="card">
+    <div class="card-header">
+        <h5>6) अमला योग</h5>
+    </div>
+    <div class="card-footer">
+        <a href="https://drive.google.com/file/d/1fq_Vw3eoMxapIsRO9bnJXZe2RBfPxlNA/view?usp=drivesdk" style="font-weight:bold"><button class="btn btn-danger">देखें</button></a>
+    </div>
+ </div>
+ <hr>
+ <div class="card">
+    <div class="card-header">
+        <h5>7) सुनफा योग  </h5>
+     </div>
+    <div class="card-footer">
+        <a href="https://drive.google.com/file/d/1I0uaFGGu1yXOecYAGzI6NLECPCcS0367/view?usp=sharing" style="font-weight:bold"><button class="btn btn-danger">देखें</button></a>
+    </div>
+ </div>
+ <hr>
+ <div class="card">
+    <div class="card-header">
+        <h5>8)  </h5>
+     </div>
+    <div class="card-footer">
+        <a href=""><button class="btn btn-danger">देखें</button></a>
+    </div>
+ </div>
+ <hr>
+</div>
+<div id="asubh" class ="tab-pane fade in">
+        <h7>अशुभ योग</h7>
+    <br><br>
+ <div class="card">
+    <div class="card-header">
+        <h5>1) केमद्रुम योग </h5>
+     </div>
+    <div class="card-footer">
+        <a href="https://drive.google.com/file/d/1JFHPYCErmfb4iQEFRT0FSHVMiZyw2VL8/view?usp=sharing" style="font-weight:bold"><button class="btn btn-danger">देखें</button></a>
+    </div>
+ </div>
+ <hr>
+ <div class="card">
+    <div class="card-header">
+        <h5>2) गुरु चांडाल दोष</h5>
+    </div>
+    <div class="card-footer">
+        <a href="https://drive.google.com/file/d/1SFOe7Hhsk8tTm-lA9avHACrRL8gCEZ-B/view?usp=sharing" style="font-weight:bold"><button class="btn btn-danger">देखें</button></a>
+    </div>
+ </div>
+ <hr>
+  <div class="card">
+    <div class="card-header">
+        <h5>3) विष योग</h5>
+    </div>
+    <div class="card-footer">
+        <a href="https://drive.google.com/file/d/1PUNZaPspprhtivfOE8aEMguxmRsoBa_V/view?usp=sharing" style="font-weight:bold"><button class="btn btn-danger">देखें</button></a>
+    </div>
+ </div>
+ <hr>
+ <div class="card">
+    <div class="card-header">
+        <h5>4) ग्रहण योग </h5>
+    </div>
+    <div class="card-footer">
+        <a href="https://drive.google.com/file/d/13W30wPN2uQmapZ9o6Jo49mEYBobYWyhp/view?usp=sharing" style="font-weight:bold"><button class="btn btn-danger">देखें</button></a>
+    </div>
+ </div>
+ <hr>
+ <div class="card">
+    <div class="card-header">
+        <h5>5) </h5>
+    </div>
+    <div class="card-footer">
+        <a href=""><button class="btn btn-danger">देखें</button></a>
+    </div>
+ </div>
+ <hr>
+ <div class="card">
+    <div class="card-header">
+        <h5>6) </h5>
+    </div>
+    <div class="card-footer">
+        <a href=""><button class="btn btn-danger">देखें</button></a>
+    </div>
+ </div>
+ <hr>
+ </div>
+ <div id="dosh" class="tab-pane fade in">
+    <h7>दोष</h7>
+    <br><br>
+     <div class="card">
+    <div class="card-header">
+        <h5>1) मांगलिक दोष </h5>
+     </div>
+    <div class="card-footer">
+        <a href="https://drive.google.com/file/d/15ZC_663GIluOlbgfVWbjRqISOzzFLTK4/view?usp=sharing" style="font-weight:bold"><button class="btn btn-danger">देखें</button></a>
+    </div>
+ </div>
+ <hr>
+ <div class="card">
+    <div class="card-header">
+        <h5>2) काल सर्प दोष </h5>
+    </div>
+    <div class="card-footer">
+        <a href="https://drive.google.com/file/d/1_oqHlPIv8B98WRupCLGywFp0FAZBwDqE/view?usp=sharing" style="font-weight:bold"><button class="btn btn-danger">देखें</button></a>
+    </div>
+ </div>
+ <hr>
+  <div class="card">
+    <div class="card-header">
+        <h5>3) पितृ दोष</h5>
+    </div>
+    <div class="card-footer">
+        <a href="https://drive.google.com/file/d/10HsxykDJULx4cWnM10V6JO4uD9auOPeu/view?usp=sharing" style="font-weight:bold"><button class="btn btn-danger">देखें</button></a>
+    </div>
+ </div>
+ <hr>
+ <div class="card">
+    <div class="card-header">
+        <h5>4) </h5>
+    </div>
+    <div class="card-footer">
+        <a href=""><button class="btn btn-danger">देखें</button></a>
+    </div>
+ </div>
+ <hr>
+ <div class="card">
+    <div class="card-header">
+        <h5>5) </h5>
+    </div>
+    <div class="card-footer">
+        <a href=""><button class="btn btn-danger">देखें</button></a>
+    </div>
+  </div>
+  <hr>
+  </div>
+     <div class= "card">
+<div class="form-container">
+    <h3 class= "ajs">अपनी चर्चा लिखें।</h3>
+    <textarea id="problemText" placeholder="अपनी चर्चा लिखें।..."></textarea>
+    <hr>
+    <button onclick="sendToWhatsapp()">अब भेजें</button>
+</div>
+ </div>
+      </body>
+<style>
+    body{
+                background-image: URL("images/IMG-20260418-WA0014.jpg");
+         background-size: cover;
+        background-repeat: no-repeat;
+         width: 100%;
+        height: 100vh;
+     }
+
+          .ji{
+        height: 60px;
+        width: 60px;
+     }
+     .card1{
+        box-shadow: 2px 2px 2px 2px goldenrod;
+        background-color: olivedrab;
+     }
+    h6{
+        margin-left: 2cm;
+        font-size: medium;
+        color: white;
+                    font-weight: 900;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    img{
+        width: 50px;
+        height: 50px;
+        border-radius: 10cm;
+    }
+    .jyo{
+                    font-weight: 900;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    h7{
+        margin-left: 1cm;
+        color: greenyellow;
+                 font-weight: 900;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    button{
+        margin-left: 3cm;
+    }
+      h3{
+        margin-left: 3cm;
+                color: red;
+    }
+  #btn{
+    gap: 0.5cm;
+    margin-left: 2cm;
+}
+     .card{
+          box-shadow: 1px 1px 1px 1px purple;
+                                 background: linear-gradient(260deg, pink 16% , blue 50%, orangered 50%, olive 100%);
+         background-size: 400% 400%;
+        animation:gradientAnimation 10s ease infinite
+    }
+    @keyframes gradientAnimation {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+    }
+                                 .card-header{
+    background-color: olivedrab;
+}
+h5{
+    color: black;
+    margin-left: 2cm;
+                font-weight: 900;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+}
+</style>
+</html>

@@ -1,0 +1,372 @@
+ 
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+                         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+ </head>
+  <body>
+       <canvas id="wmCanvas"></canvas>
+<script>
+let canvas = document.getElementById("wmCanvas");
+let ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let text = " पं रविंदर   | " + new Date().toLocaleString();
+
+ctx.font = "20px Arial";
+ctx.fillStyle = "rgba(0.3,0.3,0.3,0.3)";
+ctx.rotate(-0.5);
+
+for (let x = -500; x < canvas.width; x += 300) {
+    for (let y = 0; y < canvas.height; y += 150) {
+        ctx.fillText(text, x, y);
+    }
+}
+</script>
+
+<style>
+#wmCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
+</style>
+
+        <style>
+   body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none; /* मोबाइल पर इमेज दबाए रखने पर 'Save' मेनू नहीं आएगा */
+  }
+
+  img {
+    pointer-events: none;
+    -webkit-user-drag: none;
+  }
+
+   @media print {
+    body { display: none !important; }
+  }
+
+   .protected-content {
+    transition: filter 0.1s ease;
+  }
+  .is-blurred {
+    filter: blur(60px) !important;
+  }
+
+ </style>
+<script>
+   document.addEventListener('contextmenu', e => e.preventDefault());
+
+   document.addEventListener('keydown', function(e) {
+    if (
+      e.keyCode === 123 || // F12
+      (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83 || e.keyCode === 80)) || // Ctrl+U, S, P
+      (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) // Ctrl+I/J/C
+    ) {
+      e.preventDefault();
+      alert("Security Alert: Content is Protected!");
+      return false;
+    }
+  });
+   document.addEventListener('keyup', (e) => {
+    if (e.key === 'PrintScreen') {
+      navigator.clipboard.writeText(''); // क्लिपबोर्ड खाली करना
+      alert('Screenshots are disabled!');
+    }
+  });
+  setInterval(function() {
+    const threshold = 160;
+    if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) {
+      document.body.innerHTML = "<h2 style='text-align:center; color:red; margin-top:20%'>Security Breach! Please close Developer Tools to view content.</h2>";
+    }
+  }, 1000);
+ </script>
+
+    <script>
+document.addEventListener("contextmenu", (e) => e.preventDefault());
+
+document.onkeydown = function(e) {
+  if (e.keyCode == 123) return false; // F12
+  if (e.ctrlKey && e.shiftKey && e.keyCode == 73) return false; // Ctrl+Shift+I
+  if (e.ctrlKey && e.keyCode == 85) return false; // Ctrl+U
+};
+</script>
+      <div class="translate-box">
+     <div id="google_translate_element"></div><b>Select Language:</b>
+</div>
+ <style>
+#google_translate_element {
+    display: inline-block;
+    white-space: nowrap;
+    margin-left: 2cm;
+}
+
+.goog-te-gadget {
+    font-size: 0; /* remove extra text space */
+}
+.translate-box{
+    background-color: yellow;
+}
+.goog-te-gadget select {
+    height: 32px;
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+.translate-box{
+    background-color: yellow;
+}
+/* Hide Google text/logo */
+.goog-te-gadget span {
+    display: none;
+}
+
+/* Remove top banner */
+.goog-te-banner-frame {
+    display: none !important;
+}
+ </style>
+<!-- Google Translate Script -->
+<script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+        {
+            pageLanguage: 'en',
+            includedLanguages: 'en,hi,pa,mr,sa',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        },
+        'google_translate_element'
+    );
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+     <hr>
+    <style>
+      body{
+        background-color: darkolivegreen;
+      }
+      .ig{
+        height: 50px;
+        width: 50px;
+      }
+      body{
+        margin-top: 1cm;
+      }
+      a{
+        text-decoration: none;
+        color: black;
+      }
+                    .nav-link{
+             font-size: large;
+            font-weight: bold;
+                                  font-weight: 900;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+
+           }
+      .btn-danger{
+        margin-left: 1cm;
+      }
+      h3{
+        margin-left: 3cm;
+        color: white;
+      }
+     </style>
+     <hr>
+     <h3>अभी खरीदारी करें</h3>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <!-- Brand -->
+                                           <img class="ig" src="images/IMG-20260410-WA0001.jpg">
+                                              <button  class="btn btn-danger" style="font-weight:bold"><a href="home.html">वापस जाओ</a></button>
+                                           <!-- Toggler -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <hr>
+         <li class="nav-item">
+          <a class="nav-link " href="vichar.html">विचार</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="image.html">तस्वीरें</a>
+        </li>
+                <li class="nav-item">
+          <a class="nav-link" href="video.html">वीडियो</a>
+        </li>
+                                 <li class="nav-item">
+          <a class="nav-link" href="announcement.html">मुख्य समाचार </a>
+        </li>
+                <li class="nav-item">
+          <a class="nav-link" href="question.html">सवाल</a>
+        </li>
+                <li class="nav-item">
+          <a class="nav-link" href="solution.html">समस्याओं का समाधान और सेवाएँ उपलब्ध</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+          <h4>उपयोगकर्ताओं के लिए उपलब्ध स्टॉक</h4>
+<hr>
+     <style>
+    #items{
+        color: white;
+        background-color: darkslategrey;
+    }
+    body{
+        margin-top: 1cm;
+    }
+    .btn-dark{
+        margin-left: 3cm;
+    }
+    .card-img{
+        width: 350px;
+        height: 250px;
+     margin-left:1cm;
+    }
+    h3{
+        color: palevioletred;
+        margin-left: 1cm;
+      
+    }
+    .card{
+         box-shadow: 2px 2px 2px 2px green;
+     
+    }
+    .card-footer{
+        background-color: palevioletred;
+    }
+     h4{
+        margin-left: 2cm;
+        color: gold;
+    }
+    h2{
+        margin-left: 3cm;
+        color: red;
+    }
+     hr{
+        color: black;
+     }
+        h4{
+            margin-left: 2cm;
+        }
+ </style>
+    <script>
+      document.querySelectorAll('.collapse').forEach(collapseEl => {
+    // जब सेक्शन खुले
+    collapseEl.addEventListener('show.bs.collapse', function () {
+        const btn = this.parentElement.querySelector('.viewmore-btn');
+        if(btn) btn.innerHTML = "कम देखें";
+    });
+
+    // जब सेक्शन बंद हो
+    collapseEl.addEventListener('hide.bs.collapse', function () {
+        const btn = this.parentElement.querySelector('.viewmore-btn');
+        if(btn) btn.innerHTML = "और देखें";
+    });
+});
+        // const parent=collapseElement.closest(".card-container");
+    //const btn=parent
+   // const mycollapse=document.querySelector("#viewmore");
+   // const mybtns=document.querySelector("#viewmorebtn");
+   //  collapseElement.addEventListener("show.bs.collapse",function(){
+   //   mybtns.innerHTML="कम देखें";
+   // });
+ //collapseElement.addEventListener("hide.bs.collapse",function(){
+  //mybtns.innerHTML="और देखें";
+ //});
+   </script>
+    <div class="card card-container">
+    <div class="card-img">
+        <img src="images/IMG-20260427-WA0080.jpg">
+        </div>
+        <div class="card-header">
+                          <h2>शीर्षक</h2>
+            <h3>पंचमुखी हनुमान (अष्टधातु)</h3>
+            <hr>
+                        <h2>कीमत</h2>
+            <h3>₹ 1100 </h3>
+            <hr>
+            <h2>वर्णन</h2>
+            <h3>वास्तु शास्त्र के अनुसार, पंचमुखी हनुमान की मूर्ति या तस्वीर को स्थापित करने के लिए दो दिशाएँ सबसे उत्तम मानी जाती हैं: 
+                               <div class="collapse" id="viewmore1"> 
+<div class="card card-body mb-4"> 
+                1. मुख्य और सबसे शुभ दिशा: दक्षिण दिशा पंचमुखी हनुमान जी की मूर्ति/तस्वीर लगाने के लिए दक्षिण दिशा को सबसे श्रेष्ठ माना जाता है। कारण: वास्तु शास्त्र के अनुसार, दक्षिण दिशा से सबसे अधिक नकारात्मक ऊर्जा का प्रवाह होता है। हनुमान जी को दक्षिण दिशा का रक्षक माना जाता है और इस दिशा में उनकी पंचमुखी स्वरूप की प्रतिमा स्थापित करने से घर में नकारात्मक शक्तियों, भय और बुरी ऊर्जा का प्रवेश रुक जाता है। किस ओर मुख: जब आप मूर्ति या तस्वीर लगाते हैं, तो यह सुनिश्चित करें कि हनुमान जी का मुख दक्षिण दिशा की ओर हो (यानी आप मूर्ति को उत्तर दिशा की दीवार पर लगाएं ताकि उनका मुख दक्षिण की ओर रहे)। 2. वास्तु दोष निवारण के लिए: दक्षिण-पश्चिम कोना यदि आप अपने घर के वास्तु दोषों को दूर करना चाहते हैं, तो दक्षिण-पश्चिम (नैऋत्य कोण) कोने में पंचमुखी हनुमान जी की तस्वीर लगाना बहुत शुभ माना जाता है। लाभ: यह घर के सभी तरह के वास्तु दोषों को शांत करने और मंगलकारी ऊर्जा लाने में सहायक होता है। पंचमुखी हनुमान जी के मुख और दिशाएँ पंचमुखी हनुमान जी के पाँचों मुख अलग-अलग दिशाओं की ओर होते हैं और प्रत्येक मुख का अपना महत्व है: वानर मुख (हनुमान मुख): पूर्व दिशा की ओर, यह दुश्मनों पर विजय दिलाता है। गरुड़ मुख: पश्चिम दिशा की ओर, यह जीवन की रुकावटों और परेशानियों को दूर करता है। वराह मुख: उत्तर दिशा की ओर, यह लंबी उम्र, प्रसिद्धि और शक्ति प्रदान करता है। नृसिंह मुख: दक्षिण दिशा की ओर, यह भय, तनाव और मुश्किलों को दूर करता है (यही कारण है कि यह दिशा सबसे महत्वपूर्ण है)। अश्व मुख: आकाश की दिशा की ओर, यह मनोकामनाओं को पूर्ण करता है। ध्यान रखने योग्य बातें: मूर्ति/तस्वीर को हमेशा साफ और पवित्र जगह पर स्थापित करें। इसे कभी भी बेडरूम, बाथरूम या सीढ़ियों के नीचे नहीं लगाना चाहिए। आप पंचमुखी हनुमान जी की तस्वीर मुख्य द्वार के ऊपर भी लगा सकते हैं, ताकि यह एक रक्षक के रूप में कार्य करे।
+</h3>
+ <button class="btn btn-primary viewmore-btn" data-bs-toggle="collapse" data-bs-target="#viewmore1">
+ और देखें
+</button>
+                            <button class="btn btn-dark"onclick="contact('${item.whatsapp}')">
+                अभी खरीदें
+            </button>
+</div>
+</div>
+      <hr>
+<div class="card card-container">
+    <div class="card-img">
+        <img src=" ">
+        </div>
+        <div class="card-header">
+                          <h2>शीर्षक</h2>
+            <h3></h3>
+            <hr>
+                        <h2>कीमत</h2>
+            <h3>₹ </h3>
+            <hr>
+            <h2>वर्णन</h2>
+            <h3>
+                                               <div class="collapse" id="viewmore2"> 
+<div class="card card-body mb-4"> 
+
+            </h3>
+            <button  class="btn btn-primary viewmore-btn" data-bs-toggle="collapse" data-bs-target="#viewmore2">
+ और देखें
+</button>
+                             <button class="btn btn-dark"onclick="contact('${item.whatsapp}')">
+                अभी खरीदें
+            </button>
+</div>
+</div>
+     <hr>
+  <script> 
+function contact(num){
+    window.open("https://wa.me/9813132098?text=मुझे इस शीर्षक के बारे में और अधिक जानकारी चाहिए।");
+}
+show();
+     </script>
+
+</body>
+</html>
